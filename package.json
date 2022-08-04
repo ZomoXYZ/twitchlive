@@ -2,21 +2,24 @@
     "name": "twitchlive",
     "version": "1.0.0",
     "description": "intermediate server to see if a twitch user is live",
-    "main": "main.js",
-    "scripts": {
-        "build": "tsc",
-        "start": "node ."
-    },
+    "main": "server/main.js",
     "keywords": [],
     "author": "zomo",
     "license": "UNLICENSE",
     "devDependencies": {
+        "@cloudflare/workers-types": "^3.14.1",
         "@types/node": "^18.6.3",
         "@types/node-fetch": "^2.6.2",
+        "esbuild": "^0.14.53",
         "typescript": "^4.7.4"
     },
     "dependencies": {
         "dotenv": "^16.0.1",
         "node-fetch": "^2.6.7"
+    },
+    "scripts": {
+        "build": "node esbuild.js",
+        "start": "node server/main.js",
+        "start_worker": "node worker/main.js"
     }
 }
