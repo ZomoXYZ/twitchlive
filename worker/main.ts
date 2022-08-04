@@ -13,7 +13,7 @@ addEventListener('fetch', (event) => {
 });
 
 async function server(req: Request): Promise<Response> {
-    const path = req.url || '/';
+    const path = new URL(req.url).pathname;
 
     const response = await handleRequest(path, fetch);
 
