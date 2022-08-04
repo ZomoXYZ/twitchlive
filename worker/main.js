@@ -40,7 +40,7 @@
     );
   });
   async function server(req) {
-    const path = req.url || "/";
+    const path = new URL(req.url).pathname;
     const response = await handleRequest(path, fetch);
     return new Response(response.body, {
       status: response.status,
